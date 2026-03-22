@@ -2,13 +2,6 @@ name: Docker Build Pipeline
 
 on:
   push:
-name: Docker Build Pipeline
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -18,22 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Show project files
+      - name: Verify files
         run: ls -la
 
       - name: Build Docker image
         run: docker build -t inventory-app .
 
-      - name: Show Docker images
+      - name: List Docker images
         run: docker images
