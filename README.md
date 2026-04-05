@@ -14,6 +14,13 @@ The CI pipeline begins when code is pushed to GitHub. GitHub Actions then starts
 
 This ensures that changes to the application are automatically validated and that the Docker build process remains consistent.
 
+Step 1: Create the project folder locally
+
+If you already copied your Docker project, you can skip this.
+cd ~/Downloads
+cp -r dockerized-inventory-system inventory-devops-pipeline
+cd inventory-devops-pipeline
+
 ## Workflow File Location
 
 ```
