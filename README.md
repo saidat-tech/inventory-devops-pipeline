@@ -31,22 +31,65 @@ cd inventory-devops-pipeline
 ~~~
 
 ## Step 2: Create the GitHub Actions folders
-Inside the project folder, i.e inventory devops pipeline,
+- Inside the project folder, i.e inventory devops pipeline,
 run:
 ~~~
 mkdir -p .github/workflows
 ~~~
-This will create your .github and workflow folder.
+This will create your .github and workflows folder.
+~~~
+.github/
+.github/workflows/
+~~~
 
+## Step 3: Create the workflow file
 
+- Create the file:
+~~~
+touch .github/workflows/docker-build.yml
+~~~
+- Open the file:
+~~~
+  nano .github/workflows/docker-build.yml
+~~~
 
-## Workflow File Location
+Paste this exact code:
 
-```
-.github/workflows/docker-build.yml
-```
+~~~
+name: Docker Build Pipeline
 
----
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Verify files
+        run: ls -la
+
+      - name: Build Docker image
+        run: docker build -t inventory-app .
+
+      - name: List Docker images
+        run: docker images
+~~~
+
 
 ## Pipeline Stages
 
