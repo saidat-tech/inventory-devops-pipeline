@@ -53,7 +53,7 @@ touch .github/workflows/docker-build.yml
   nano .github/workflows/docker-build.yml
 ~~~
 
-Paste this exact code:
+- Paste this exact code:
 
 ~~~
 name: Docker Build Pipeline
@@ -89,6 +89,27 @@ jobs:
       - name: List Docker images
         run: docker images
 ~~~
+
+Save and Exit with:
+~~~
+Ctrl + X
+Y
+Enter
+~~~
+
+## Step 4: Connect to GitHub repository
+- Run these commands inside your project i.e inventory-devops-pipeline
+~~~
+git init
+git add .
+git commit -m "Initial CI pipeline project"
+git branch -M main
+git remote add origin https://github.com/saidat-tech/inventory-devops-pipeline.git
+git push -u origin main
+~~~
+
+
+
 
 
 ## Pipeline Stages
