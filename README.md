@@ -108,19 +108,38 @@ git remote add origin https://github.com/saidat-tech/inventory-devops-pipeline.g
 git push -u origin main
 ~~~
 
+## Step 5: Check GitHub Actions
 
+- Go to your repository on GitHub.
+~~~
+Actions
+~~~
 
+You should see:
+~~~
+Docker Build Pipeline
+~~~
 
+Open it and watch the steps run.
 
-## Pipeline Stages
+If all goes well, you will see a green tick.
 
-1. Checkout repository code  
-2. Set up Node.js  
-3. Install project dependencies  
-4. Build Docker image  
-5. Verify Docker image creation  
+## Step 6: How to rerun the workflow
+You have two ways.
+- Option 1: Push new code
+  Any push, to main will trigger the workflow.
+  Example:
+~~~
+git add .
+git commit -m "Update workflow or app"
+git push
+~~~
 
----
+- Option 2: Run manually
+Go to GitHub → Actions → Docker Build Pipeline → Run workflow
+
+This works because of the "workflow_dispatch:" in the YAML file.
+ 
 
 ## Technologies Used
 
@@ -142,16 +161,10 @@ This project demonstrates practical DevOps skills including:
 - Verifying application packaging automatically  
 - Triggering workflows on code push  
 
----
 
-## Trigger Events
 
-The workflow runs on:
 
-- push to `main`
-- manual execution using `workflow_dispatch`
 
----
 
 ## Project Structure
 
