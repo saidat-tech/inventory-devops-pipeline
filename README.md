@@ -141,7 +141,7 @@ If all goes well, you will see a green tick.
 
 ## Step 6: How to rerun the workflow
 You have two ways.
-- Option 1: Push new code
+- **Option 1**: Push new code
   Any push, to main will trigger the workflow.
   Example:
 ~~~
@@ -150,7 +150,7 @@ git commit -m "Update workflow or app"
 git push
 ~~~
 
-- Option 2: Run manually
+- **Option 2**: Run manually
 Go to GitHub → Actions → Docker Build Pipeline → Run workflow
 
 This works because of the "workflow_dispatch:" in the YAML file.
