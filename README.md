@@ -14,6 +14,21 @@ The CI pipeline begins when code is pushed to GitHub. GitHub Actions then starts
 
 This ensures that changes to the application are automatically validated and that the Docker build process remains consistent.
 
+## Project Structure
+
+```
+inventory-devops-pipeline/
+├── .github/
+│   └── workflows/
+│       └── docker-build.yml
+├── public/
+│   └── index.html
+├── app.js
+├── Dockerfile
+├── .dockerignore
+├── package.json
+└── package-lock.json
+```
 ## Step 1: Create the project folder locally. 
 
 If you already copied your Docker project, you can skip this.
@@ -149,8 +164,6 @@ This works because of the "workflow_dispatch:" in the YAML file.
 - Express.js  
 - Git  
 
----
-
 ## Skills Demonstrated
 
 This project demonstrates practical DevOps skills including:
@@ -161,75 +174,11 @@ This project demonstrates practical DevOps skills including:
 - Verifying application packaging automatically  
 - Triggering workflows on code push  
 
-
-
-
-
-
-## Project Structure
-
-```
-inventory-devops-pipeline/
-├── .github/
-│   └── workflows/
-│       └── docker-build.yml
-├── public/
-│   └── index.html
-├── app.js
-├── Dockerfile
-├── .dockerignore
-├── package.json
-└── package-lock.json
-```
-
----
-
-## Example Workflow
-
-```
-name: Docker Build Pipeline
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Verify files
-        run: ls -la
-
-      - name: Build Docker image
-        run: docker build -t inventory-app .
-
-      - name: List Docker images
-        run: docker images
-```
-
----
-
 ## Outcome
 
 This project shows how Continuous Integration can help automate repetitive validation tasks and improve consistency in the software delivery process.
 
 It also provides a strong foundation for future improvements such as automated deployment to AWS EC2 or pushing Docker images to a container registry.
-
----
 
 ## Future Improvements
 
