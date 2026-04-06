@@ -44,6 +44,7 @@ cp -r dockerized-inventory-system inventory-devops-pipeline
 ~~~
 cd inventory-devops-pipeline
 ~~~
+<img width="447" height="89" alt="Image" src="https://github.com/user-attachments/assets/4add3222-b7a1-46e2-ae62-3e7c1cb129d9" />
 
 ## Step 2: Create the GitHub Actions folders
 - Inside the project folder, i.e inventory devops pipeline,
@@ -56,6 +57,7 @@ This will create your .github and workflows folder.
 .github/
 .github/workflows/
 ~~~
+<img width="486" height="45" alt="Image" src="https://github.com/user-attachments/assets/ebc81def-53cd-40df-aeb4-9b208a9c4f21" />
 
 ## Step 3: Create the workflow file
 
@@ -63,13 +65,15 @@ This will create your .github and workflows folder.
 ~~~
 touch .github/workflows/docker-build.yml
 ~~~
+<img width="486" height="41" alt="Image" src="https://github.com/user-attachments/assets/27ff2a9b-ccd4-443e-b949-9370ffc37242" />
+
 - Open the file:
 ~~~
   nano .github/workflows/docker-build.yml
 ~~~
+<img width="609" height="141" alt="Image" src="https://github.com/user-attachments/assets/1fca2ab4-1a7b-494d-83a2-f70eaf450b47" />
 
 - Paste this exact code:
-
 ~~~
 name: Docker Build Pipeline
 
@@ -122,7 +126,7 @@ git branch -M main
 git remote add origin https://github.com/saidat-tech/inventory-devops-pipeline.git
 git push -u origin main
 ~~~
-
+<img width="736" height="274" alt="Image" src="https://github.com/user-attachments/assets/0abc9b8e-e8eb-4857-b33d-20740575cf4c" />
 ## Step 5: Check GitHub Actions
 
 - Go to your repository on GitHub.
@@ -138,6 +142,8 @@ Docker Build Pipeline
 Open it and watch the steps run.
 
 If all goes well, you will see a green tick.
+
+<img width="785" height="534" alt="Image" src="https://github.com/user-attachments/assets/74e84706-6930-47a7-8058-cfc3073b7416" />
 
 ## Step 6: How to rerun the workflow
 You have two ways.
@@ -155,7 +161,7 @@ Go to GitHub → Actions → Docker Build Pipeline → Run workflow
 
 This works because of the "workflow_dispatch:" in the YAML file.
  
-## Common errors and fixes
+## Errors and fixes in this project.
 - **Invalid workflow file**
 
 **Cause**:
