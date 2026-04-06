@@ -156,42 +156,42 @@ Go to GitHub → Actions → Docker Build Pipeline → Run workflow
 This works because of the "workflow_dispatch:" in the YAML file.
  
 ## Common errors and fixes
-1. Invalid workflow file
+- **Invalid workflow file**
 
-Cause:
+**Cause**:
 duplicate name
 duplicate on
 bad indentation
 
-Fix:
+**Fix**:
 Use the exact YAML above.
 
-2. Workflow not showing on GitHub
+- **Workflow not showing on GitHub**
 
-Cause:
+**Cause**:
 file is not inside .github/workflows/
 wrong extension like .txt
 
-Fix:
+**Fix**:
 Make sure it is exactly in:
 .github/workflows/docker-build.yml
 
-3. Push permission denied
+- **Push permission denied**
 
-Cause:
+**Cause**:
 wrong GitHub account logged in
 
-Fix:
+**Fix**:
 Push using the right account and correct remote URL.
 
-4. Docker build fails in pipeline
+- **Docker build fails in pipeline**
 
-Cause:
+**Cause**:
 missing Dockerfile
 broken app code
 missing package.json
 
-Fix:
+**Fix**:
 Check your project files and test Docker locally first.
 
 ## Technologies Used
