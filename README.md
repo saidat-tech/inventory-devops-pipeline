@@ -232,3 +232,4 @@ Potential next steps for this project include:
 - deploying automatically to AWS EC2
 - adding test stages before Docker build
 - extending the workflow into a full CI/CD pipeline
+# trigger workflow
