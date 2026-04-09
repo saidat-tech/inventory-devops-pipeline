@@ -1,16 +1,17 @@
-name: Docker Build Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
-  build:
+  build-and-push:
+
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -22,11 +23,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Verify files
-        run: ls -la
-
       - name: Build Docker image
         run: docker build -t inventory-app .
 
-      - name: List Docker images
-        run: docker images
+      - name: DockerHub Login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Tag image
+        run: docker tag inventory-app ${{ secrets.DOCKER_USERNAME }}/inventory-app:latest
+
+      - name: Push image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/inventory-app:latest
